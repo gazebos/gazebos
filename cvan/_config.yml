@@ -1,0 +1,11 @@
+source: .
+highlighter: true
+markdown: rdiscount
+permalink: date
+
+defaults:
+  -
+    scope:
+      path: ""  # Empty string matches all files.
+    values:
+      layout: "page"
