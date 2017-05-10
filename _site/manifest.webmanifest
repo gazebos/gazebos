@@ -1,0 +1,39 @@
+{
+  "name": "Gazebos",
+  "short_name": "Gazebos",
+  "description": "Bite-sized WebVR experiences.",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "./?src=manifest",
+  "scope": "./",
+  "display": "fullscreen",
+  "theme_color": "#5e2def",
+  "background_color": "#000",
+  "icons": [
+    {
+      "src": "/img/logo.svg",
+      "sizes": "290x290",
+      "type": "image/svg",
+      "border-radius": "3px"
+    },
+    {
+      "src": "/img/logo.png",
+      "sizes": "580x580",
+      "type": "image/png",
+      "density": "2"
+    },
+    {
+      "src": "favicon.ico",
+      "sizes": "16x16 32x32 48x48 64x64 256x256",
+      "type": "image/x-icon"
+    }
+  ],
+  "vr_default_display": "HTC Vive",
+  "vr_available_displays": [
+    "HTC Vive",
+    "Oculus Rift",
+    "Google Daydream",
+    "Samsung Gear VR",
+    "Google Cardboard"
+  ]
+}

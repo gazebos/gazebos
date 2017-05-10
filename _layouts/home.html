@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en" data-section="home">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bite-sized WebVR experiences ∞ Gazebos</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      html {
+        font-size: 14px;
+      }
+
+      body {
+        background: #111;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      }
+
+      a {
+        color: #01ff70;
+        text-decoration: none;
+      }
+
+      a:hover {
+        transition: .15s all ease-in-out;
+      }
+
+      h1 a {
+        background: rgba(17,17,17,.05);
+        border-bottom: 1px dotted rgba(255,255,255,.075);
+        color: #01ff70;
+        display: block;
+        padding: 1.5rem;
+        opacity: .8;
+      }
+
+      h1 a:hover {
+        background: #01ff70;
+        color: #111;
+        opacity: 1;
+      }
+
+      h1 {
+        color: rgba(255,255,255,.25);
+        line-height: 1.5;
+      }
+
+      h2 {
+        color: rgba(255,255,255,.25);
+        line-height: 1.5;
+        padding: .5rem;
+      }
+
+      .header a {
+        text-decoration: none;
+      }
+
+      h1 a:before {
+        /*content: "▒▒░ \a0";*/
+        content: "⧓\a0\a0";
+      }
+
+      .main {
+        padding: 1.5rem;
+      }
+
+      .main h2,
+      code,
+      pre,
+      tt,
+      .code,
+      .pre,
+      .tt {
+        font-family: Consolas, Andale Mono, Monaco,
+          Lucida Console, Liberation Mono, DejaVu Sans Mono,
+          Bitstream Vera Sans Mono, Courier New, monospace;
+      }
+
+      .main li a {
+        color: #F012BE;
+      }
+
+      .main li a:hover {
+        color: magenta;
+      }
+
+      h2 {
+        font-size: 1rem;
+      }
+
+      .main a {
+        display: block;
+        margin: -1rem;
+        padding: 1rem;
+        width: 100%;
+      }
+
+      .main h2 a {
+        color: #666;
+      }
+
+      .main h2 a:hover {
+        color: #999;
+      }
+
+      section[data-section] {
+        align-content: flex-start;
+        /*align-items: flex-start;*/
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 2rem;
+        width: 100%;
+      }
+
+      section[data-section] + section[data-section] {
+        padding-top: 4rem;
+      }
+
+      section[data-section] > div + div {
+        flex: 1;
+      }
+
+      section[data-section] > div ul {
+        list-style-type: none;
+      }
+
+      section[data-section] > div:first-child {
+        min-width: 10rem;
+      }
+
+      section[data-section] > div ~ div {
+        /*padding-left: 3rem;*/
+      }
+
+      .main li a {
+        display: block;
+        font-size: 2rem;
+        line-height: 1.4;
+      }
+
+      .main li a span {
+        max-width: 10rem;
+      }
+
+      .main li + li {
+        margin-top: 1.25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header" class="header">
+      <div class="wrap">
+        <h1><a href="/">Gazebos</a></h1>
+      </div>
+    </header>
+
+    <main id="main" class="main">
+      {{ content }}
+    </main>
+
+    <script>
+      (function () {
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        // TODO: Add GA.
+        ga('create', 'UA-XXXXXXXX-Y', 'auto');
+        ga('send', 'pageview');
+      })();
+    </script>
+  </body>
+</html>

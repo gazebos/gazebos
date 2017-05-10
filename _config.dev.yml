@@ -1,0 +1,2 @@
+baseurl: ""  # The subpath of the site (e.g., `/blog`).
+url: "https://localhost:3000"  # The base origin (protocol and host) of the site.

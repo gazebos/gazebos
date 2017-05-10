@@ -1,0 +1,40 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <h2 class="footer-heading">{{ site.title }}</h2>
+
+    <div class="footer-col-1 column">
+      <ul class="contact-list">
+        {% if site.display_title and site.title %}
+          <li>{{ site.title }}</li>
+        {% endif %}
+        {% if site.display_email and site.email %}
+          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+        {% endif %}
+      </ul>
+    </div>
+    <div class="footer-col-2 column">
+      <ul class="social-media-list">
+        {% if site.display_github_username and site.github_username %}
+          <li class="social-media-list-item">
+            {% assign github_username = site.github_username | replace: '@', '' %}
+            {% include icon-github.html username=github_username %}
+          </li>
+        {% endif %}
+        {% if site.display_twitter_username and site.twitter_username %}
+          <li class="social-media-list-item">
+            {% assign twitter_username = site.twitter_username | replace: '@', '' %}
+            {% include icon-twitter.html username=twitter_username %}
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+
+    <div class="footer-col-3 column">
+      <p>{{ site.description }}</p>
+    </div>
+  </div>
+</footer>
+
+<script src="{{ '/dist/js/main.js' | prepend: site.baseurl }}"></script>
+
+{% include js/ga.js %}

@@ -1,0 +1,60 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# `jekyll serve`. If you change this file, please restart the server process.
+
+# Site settings.
+baseurl: ""  # The subpath of the site (e.g., `/blog`).
+url: "https://gazebos.io"  # The base origin (protocol and host) of the site.
+lang: en  # Content language.
+title: Gazebos
+display_title: true
+email: vr@mozilla.com
+display_email: false
+description: >  # Note: The `>` means to ignore newlines until `baseurl:` is reached.
+  Bite-sized WebVR experiences.
+display_description: true
+twitter_username: mozillavr
+display_twitter_username: true
+github_username: gazebos
+display_github_username: true
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: scene
+collections:
+  scenes:
+    output: true
+    permalink: /:path
+
+# Build settings.
+markdown: kramdown
+include: [
+  "_assets",
+  "_branding",
+  "_img",
+  "_js",
+  "_scenes",
+  "_tools"
+]
+# NOTE: Jekyll automatically excludes files with a dot prefix.
+exclude: [
+  "Gemfile",
+  "node_modules",
+  "package.json",
+  "src",
+  "test"
+]
+compress_html:
+  clippings: []
+  comments: []
+  endings: []
+  ignore:
+    envs: []
+  blanklines: false
+  profile: false
+  startings: []
