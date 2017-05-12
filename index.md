@@ -10,6 +10,7 @@ layout: home
   <div>
     <ul>
       <li><a href="/cvan/roaming_cubes"><span>Roaming Cubes</span></a></li>
+      <li><a href="/cvan/lunar_winds"><span>Lunar Winds</span></a></li>
     </ul>
   </div>
 </section>

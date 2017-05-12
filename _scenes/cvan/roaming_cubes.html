@@ -1,7 +1,7 @@
 ---
 layout: scene
 title: "Roaming Cubes"
-date: 2017-03-09 14:00:00 -0700
+date: 2017-05-09 14:00:00 -0800
 categories: scenes
 tags:
   - videos
@@ -12,11 +12,13 @@ tags:
 video_source: https://vimeo.com/202925050
 audio_source: http://www.bensound.com/royalty-free-music/funky-groove
 permalink: /cvan/roaming_cubes.html
+prev_scene: /cvan/lunar_winds
+next_scene: /cvan/lunar_winds
 ---
 
 <!--
 
-1. Download this video (when signed in with a Vimeo PRO account): https://vimeo.com/214303851
+1. Download the UHD 4K version of this Vimeo video (when signed in with a Vimeo PRO account): https://vimeo.com/214303851
 2. Download this MP3 audio file: http://www.bensound.com/royalty-free-music/funky-groove
 3. Run this CLI command to convert the video:
 
@@ -30,17 +32,21 @@ permalink: /cvan/roaming_cubes.html
 
 
     ```
-    _tools/ogg.sh "$(ls ~/Downloads/bensound-*.mp3)"
+    _tools/ogg.sh "$(ls ~/Downloads/bensound-retrosoul.mp3)"
+    _tools/mp3.sh "$(ls ~/Downloads/bensound-retrosoul.mp3)"
     ```
 
-    (The converted video lives at `src/assets/bensound-retrosoul.z.ogg`)
+    (The converted audio files will live at `src/assets/bensound-retrosoul.z.ogg` and `src/assets/bensound-retrosoul.z.mp3`, respectively)
 
 -->
 
 <a-scene auto-enter-vr="display: all">
   <a-assets>
     <!-- TIP: You can press the `S` key to pause all sounds. -->
-    <audio id="audio" src="/_assets/bensound-retrosoul.z.ogg" preload="true" autoplay loop="true"></audio>
+    <audio id="audio" preload="true" autoplay loop="true">
+      <source src="/_assets/bensound-retrosoul.z.ogg" type="audio/ogg">
+      <source src="/_assets/bensound-retrosoul.z.mp3" type="audio/mpeg">
+    </audio>
     <video id="video" preload="true"
            src="/_assets/Roaming_Cubes_-_Processing_360_Video.z.mp4"
            width="100%" height="100%" autoplay loop="true"

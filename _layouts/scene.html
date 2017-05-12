@@ -14,6 +14,12 @@
     </style>
     <script src="{{ '/_js/vendor/aframe-master.min.js' | prepend: site.baseurl }}"></script>
     <script src="{{ '/_js/main.js' | prepend: site.baseurl }}"></script>
+    {% if page.prev_scene %}
+    <link rel="prev" href="{{ page.prev_scene }}">
+    {% endif %}
+    {% if page.next_scene %}
+    <link rel="next" href="{{ page.next_scene }}">
+    {% endif %}
   </head>
   <body>
 

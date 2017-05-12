@@ -1,5 +1,6 @@
 (function () {
   'use strict';
+
   var num = getNum() || -1;
 
   function getNum () {
@@ -18,92 +19,69 @@
     return num;
   }
 
+  var prev;
+  var next;
+
+  window.addEventListener('DOMContentLoaded', function () {
+    prev = document.head.querySelector('link[rel~="prev"]');
+    next = document.head.querySelector('link[rel~="next"]');
+  });
+
   function go (increment) {
+    if (typeof increment === 'number') {
+      if (prev && increment === -1) {
+        window.location.href = prev.getAttribute('href');
+        return;
+      }
+      if (next && increment === 1) {
+        window.location.href = next.getAttribute('href');
+        return;
+      }
+    }
+    if (typeof increment === 'string') {
+      if (increment === 'prev') {
+        window.location.href = prev.getAttribute('href');
+        return;
+      }
+      if (increment === 'next') {
+        window.location.href = next.getAttribute('href');
+        return;
+      }
+    }
     num = setNum(increment);
     window.location.href = './' + num + '.html';
   }
 
-  function docParsed (cb) {
-    var listener = function () {
-      if (document.readyState === 'interactive' || document.readyState === 'complete') {
-        document.removeEventListener('readystatechange', listener);
-        cb(null, true);
-      }
-    };
-    document.addEventListener('readystatechange', listener);
-    listener();
-  }
-
-  function docLoaded (cb) {
-    var listener = function () {
-      if (document.readyState === 'complete') {
-        document.removeEventListener('readystatechange', listener);
-        cb(null, true);
-      }
-    };
-    document.addEventListener('readystatechange', listener);
-    listener();
-  }
-
-  function docContentLoaded (cb) {
-    var listener = function () {
-      if (document.readyState === 'interactive' || document.readyState === 'complete') {
-        document.removeEventListener('DOMContentLoaded', listener);
-        cb(null, true);
-      }
-    };
-    document.addEventListener('DOMContentLoaded', listener);
-    listener();
-  }
-
-  function tryUntilFound (cb) {
-    return docParsed(function (err, result) {
-      if (err || !result) {
-        return docLoaded(function (err, result) {
-          if (err || !result) {
-            return;
-          }
-          cb();
-        });
-      }
-
-      var done = cb();
-      if (!done) {
-        return docContentLoaded(function (err, result) {
-          if (err || !result) {
-            return;
-          }
-          cb();
-        });
-      }
-    });
-  }
-
-  function autoEnterVR (cb) {
+  var sceneReady = new Promise(function (resolve, reject) {
     var scene = document.querySelector('a-scene');
+
+    if (scene) {
+      resolve(scene);
+      return;
+    }
+
     if (!scene) {
-      return false;
+      document.addEventListener('readystatechange', sceneFound);
+
+      setTimeout(function () {
+        sceneFound(true);
+      }, 5000);
     }
-    if (scene.hasLoaded) {
-      loaded();
-    } else {
-      scene.addEventListener('loaded', loaded);
-    }
-    return true;
-    function loaded () {
-      scene.enterVR().then(function () {
-        if (cb && typeof cb === 'function') {
-          cb(null, scene);
-        }
-      }).catch(function (err) {
-        if (cb && typeof cb === 'function') {
-          cb(err, scene);
+
+    function sceneFound (didTimeout) {
+      scene = document.querySelector('a-scene');
+      if (didTimeout || scene) {
+        document.removeEventListener('readystatechange', sceneFound);
+        if (scene.hasLoaded) {
+          resolve(scene);
         } else {
-          console.warn(err);
+          scene.addEventListener('loaded', function () {
+            resolve(scene);
+          });
         }
-      });
+      }
     }
-  }
+  });
 
   var sounds;
   var supports = {};
@@ -121,15 +99,10 @@
   //   });
   // }
 
-  tryUntilFound(function () {
-    return autoEnterVR(function (err, scene) {
-      if (err) {
-        console.warn(err);
-      }
-
-      sounds = new Sounds({
-        scene: scene
-      });
+  sceneReady.then(function (scene) {
+    console.log('got scene', scene);
+    sounds = new Sounds({
+      scene: scene
     });
   });
 
@@ -245,4 +218,53 @@
       sounds.toggle();
     }
   });
+
+  if ('ontouchstart' in window) {
+    window.addEventListener('dblclick', function () {
+      sounds.toggle();
+    });
+  }
+
+  function playVideoOnClick (selector) {
+    var el = document.querySelector(selector);
+
+    if (el) {
+      addListener();
+    } else {
+      window.addEventListener('load', addListener);
+    }
+
+    function addListener () {
+      el = document.querySelector(selector);
+
+      if (!el) {
+        return;
+      }
+
+      if (el.paused) {
+        window.addEventListener('click', handleFirstClick);
+      }
+
+      function handleFirstClick () {
+        try {
+          if (el.muted) {
+            delete el.muted;
+          }
+          if (el.paused) {
+            el.play();
+          }
+        } catch (e) {
+        }
+
+        removeHandleFirstClick();
+      }
+
+      function removeHandleFirstClick () {
+        window.removeEventListener('click', handleFirstClick);
+      }
+    }
+  }
+
+  playVideoOnClick('video');
+  playVideoOnClick('audio');
 })();

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-default_extname=".ogg"
-output_extname=".z.ogg"
+default_extname=".mp3"
+output_extname=".z.mp3"
 
 arg_1=$1
 arg_2=$2

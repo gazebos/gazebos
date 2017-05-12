@@ -57,6 +57,12 @@ npm run serve
 npm run build
 ```
 
+### Optimize images
+
+```sh
+npm run build-img
+```
+
 ### Performance insights
 
 ```sh
@@ -66,7 +72,7 @@ npm run pagespeed
 ### Accessibility
 
 ```sh
-npm run accessibility
+npm run a11y
 ```
 
 

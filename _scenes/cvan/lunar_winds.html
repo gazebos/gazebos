@@ -1,0 +1,58 @@
+---
+layout: scene
+title: "Lunar Winds"
+date: 2017-03-09 14:00:00 -0700
+categories: scenes
+tags:
+  - videos
+  - shapes
+  - cubes
+  - vimeo
+  - bensound
+video_source: https://vimeo.com/216337773
+audio_source: http://www.bensound.com/royalty-free/slow-motion
+permalink: /cvan/lunar_winds.html
+prev_scene: /cvan/roaming_cubes
+next_scene: /cvan/roaming_cubes
+---
+
+<!--
+
+1. Download the UHD 4K version of this Vimeo video (when signed in with a Vimeo PRO account): https://vimeo.com/216337773
+2. Download this MP3 audio file: http://www.bensound.com/royalty-free/slow-motion
+3. Run this CLI command to convert the video:
+
+    ```
+    _tools/trim.sh "$(ls ~/Downloads/Roaming*Cubes*.mp4)"
+    ```
+
+    (The converted video lives at `src/assets/Roaming_Cubes_-_Processing_360_Video.z.mp4`)
+
+4. Run these CLI commands to convert generate OGG and MP3 sources:
+
+
+    ```
+    _tools/ogg.sh "$(ls ~/Downloads/bensound-slowmotion.mp3)"
+    _tools/mp3.sh "$(ls ~/Downloads/bensound-slowmotion.mp3)"
+    ```
+
+    (The converted audio files will live at `src/assets/bensound-slowmotion.z.ogg` and `src/assets/bensound-slowmotion.z.mp3`, respectively)
+
+-->
+
+<a-scene auto-enter-vr="display: all">
+  <a-assets>
+    <!-- TIP: You can press the `S` key to pause all sounds. -->
+    <audio id="audio" preload="true" autoplay loop="true">
+      <source src="/_assets/bensound-slowmotion.z.ogg" type="audio/ogg">
+      <source src="/_assets/bensound-slowmotion.z.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="audio" src="/_assets/bensound-retrosoul.z.ogg" preload="true" autoplay loop="true"></audio>
+    <video id="video" preload="true"
+           src="/_assets/Roaming_Cubes_-_Processing_360_Video.z.mp4"
+           width="100%" height="100%" autoplay loop="true"
+           crossorigin="anonymous"></video>
+  </a-assets>
+  <a-videosphere src="#video"></a-videosphere>
+</a-scene>
