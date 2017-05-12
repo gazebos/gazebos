@@ -7,16 +7,18 @@ Bite-sized [WebVR](https://webvr.rocks/) experiences.
 
 ## Usage
 
-1. [Load **https://gazebos.io/**](https://gazebos.io/).
-2. Add your A-Frame scene markup to `_scenes/<username>/<scene>.html`.
-3. Thank you for contributing!
+1. [Load **https://gazebos.io/**](https://gazebos.io/), and _dive_ right in!
+2. Add your [A-Frame](https://aframe.io/docs/) scene markup to `_scenes/<username>/<scene>.html`.
+3. Find some _public-domain_ assets (or, better yet: make your own assets from scratch).
+4. Use the various tools in the [`_tools`](_tools) directory: for trimming videos to be <= 10 seconds long, for downloading YouTube/Vimeo videos, images from Flickr (e.g., [these equirectangular ones](https://www.flickr.com/groups/equirectangular/)), and a boilerplate for launching Chrome headlessly (if you want to do some automation/site scraping).
+5. Thank you for building and [sharing](#contributing) your creativity!
 
 
 ## Installation
 
-Follow [these directions for using GitHub Pages with Jekyll](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/).
+First, ensure [Ruby](https://www.ruby-lang.org/en/documentation/installation/) is installed, which is needed for [Jekyll](https://jekyllrb.com). Follow [these directions for setting up a local development Jekyll environment (à la GitHub Pages in production)](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/).
 
-First, ensure [Node](https://nodejs.org/download/) is installed. From the command line, run this command to install the dependencies:
+First, ensure [Node](https://nodejs.org/download/) is installed. From the command line, install the dependencies:
 
 ```sh
 npm install
@@ -33,8 +35,6 @@ Feel free to open a [pull request](https://github.com/gazebos/gazebos/pulls) to 
 4. Run `npm run build` to build and watch for code changes.
 5. Then, from within your project's directory: `npm link next`
 6. Now you can run your app with the local version of `gazebos`.
-
-To update the site index on the GH Pages site, you'll need to run the index build script. Just clone the project to your local machine, open your command-line interface (e.g., `Terminal` on Mac, `Command Prompt` on Windows), and `cd` into the repo's directory. Then, run `script/build_site_index` and commit your changes. Once the new index is commuted and pushed, it will be live as soon as the CDN updates (roughly a few minutes).
 
 
 ## Development
