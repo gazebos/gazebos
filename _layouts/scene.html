@@ -31,12 +31,12 @@
       {% endif %}
     {% endfor %}
     {% if page.prev_scene %}
-      <link rel="prev" href="{{ page.prev_scene }}">
-      <link rel="preload" href="{{ page.prev_scene }}">
+      <link rel="prev" href="{{ page.prev_scene|replace: 'index.html','' }}">
+      <link rel="preload" href="{{ page.prev_scene|replace: 'index.html','' }}">
     {% endif %}
     {% if page.next_scene %}
-      <link rel="next" href="{{ page.next_scene }}">
-      <link rel="preload" href="{{ page.next_scene }}">
+      <link rel="next" href="{{ page.next_scene|replace: 'index.html','' }}">
+      <link rel="preload" href="{{ page.next_scene|replace: 'index.html','' }}">
     {% endif %}
   </head>
   <body>
