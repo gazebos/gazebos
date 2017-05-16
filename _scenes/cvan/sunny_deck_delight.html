@@ -1,0 +1,54 @@
+---
+layout: scene
+title: "Sunny-Deck Delight"
+date: 2017-05-15 16:52:00 -0800
+categories: scenes
+tags:
+  - loops
+  - image
+  - vimeo
+  - adobe
+  - fort
+  - grass
+  - outdoors
+  - soundcloud
+  - wearecc
+  - google
+  - google-maps-panoramas
+  - equirectangular
+  - mp3
+  - ogg
+  - webm
+  - mp4
+image_source: https://www.flickr.com/photos/dmswart/32620308184/in/pool-artpanoramas/
+audio_source: https://soundcloud.com/wearecc/ear_evisbeats_1-wav
+permalink: /cvan/sunny_deck_delight.html
+prev_scene: /cvan/adobe_fort.html
+next_scene: /cvan/roaming_cubes.html
+audio_asset: /_assets/ear_evisbeats_1.z.ogg
+image_asset: /_assets/dmswart_32620308184.png
+---
+
+<!--
+
+Commands used:
+
+```
+curl https://farm1.staticflickr.com/766/32620308184_f2a3f43dcb_o_d.png > _assets/dmswart_32620308184.png
+_tools/mp3.sh ~/Downloads/ear_evisbeats_1.wav
+_tools/ogg.sh ~/Downloads/ear_evisbeats_1.wav
+```
+
+-->
+
+<a-scene auto-enter-vr="display: all">
+  <a-assets>
+    <!-- TIP: You can press the `S` key to pause all sounds. -->
+    <audio id="audio" preload="true" autoplay loop>
+      <source src="/_assets/ear_evisbeats_1.z.ogg" type="audio/ogg">
+      <source src="/_assets/ear_evisbeats_1.z.mp3" type="audio/mpeg">
+    </audio>
+    <img id="image" src="/_assets/dmswart_32620308184.png" crossorigin="anonymous">
+  </a-assets>
+  <a-sky src="#image"></a-sky>
+</a-scene>

@@ -14,11 +14,29 @@
     </style>
     <script src="{{ '/_js/vendor/aframe-master.min.js' | prepend: site.baseurl }}"></script>
     <script src="{{ '/_js/main.js' | prepend: site.baseurl }}"></script>
+    {% for scene in site.scenes %}
+      {% if scene.permalink == page.prev_scene or scene.permalink == page.next_scene %}
+        {% assign preload_video = scene.video_asset %}
+        {% assign preload_image = scene.image_asset %}
+        {% assign preload_audio = scene.audio_asset %}
+        {% if preload_video %}
+          <link rel="preload" href="{{ preload_video }}">
+        {% endif %}
+        {% if preload_image %}
+          <link rel="preload" href="{{ preload_image }}">
+        {% endif %}
+        {% if preload_audio %}
+          <link rel="preload" href="{{ preload_audio }}">
+        {% endif %}
+      {% endif %}
+    {% endfor %}
     {% if page.prev_scene %}
-    <link rel="prev" href="{{ page.prev_scene }}">
+      <link rel="prev" href="{{ page.prev_scene }}">
+      <link rel="preload" href="{{ page.prev_scene }}">
     {% endif %}
     {% if page.next_scene %}
-    <link rel="next" href="{{ page.next_scene }}">
+      <link rel="next" href="{{ page.next_scene }}">
+      <link rel="preload" href="{{ page.next_scene }}">
     {% endif %}
   </head>
   <body>

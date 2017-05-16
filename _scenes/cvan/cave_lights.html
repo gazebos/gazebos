@@ -1,0 +1,69 @@
+---
+layout: scene
+title: "Cave Lights"
+date: 2017-05-15 18:13:00 -0800
+categories: scenes
+tags:
+  - videos
+  - loops
+  - experimental
+  - vimeo
+  - soundcloud
+  - julius-horsthuis
+  - wearecc
+  - cave
+  - mp3
+  - ogg
+  - webm
+  - mp4
+video_source: https://vimeo.com/206258240
+audio_source: https://soundcloud.com/wearecc/robert-kroos-1
+permalink: /cvan/cave_lights.html
+prev_scene: /cvan/lunar_winds.html
+next_scene: /cvan/concrete_sheets.html
+audio_asset: /_assets/ear_robert_kroos_1.z.ogg
+video_asset: /_assets/Crystal_Habit.2.z.webm
+---
+
+<!--
+
+1. Download the Original (4096×4096) version of this Vimeo video (when signed in with a Vimeo PRO account): https://vimeo.com/206258240
+2. Download this MP3 audio file: https://soundcloud.com/wearecc/robert-kroos-1
+3. Run these CLI commands to convert the videos:
+
+    ```
+    start=01:21 end=01:31 ./_tools/trim_remove_audio.sh ~/Downloads/Crystal\ Habit.mp4
+    start=01:12 end=01:22 ./_tools/trim_remove_audio.sh ~/Downloads/Crystal\ Habit.mp4 _assets/Crystal_Habit.2.z.mp4
+    ./_tools/webm.sh _assets/Crystal_Habit.2.z.mp4
+    ```
+
+    (The converted videos will be in the `_assets` directory)
+
+4. Run this CLI command to convert the audio:
+
+
+    ```
+    _tools/ogg.sh "$(ls ~/Downloads/ear_robert_kroos_1.wav)"
+    _tools/mp3.sh "$(ls ~/Downloads/ear_robert_kroos_1.wav)"
+    ```
+
+    (The converted audio files will be in the `_assets` directory)
+
+-->
+
+<a-scene auto-enter-vr="display: all">
+  <a-assets>
+    <!-- TIP: You can press the `S` key to pause all sounds. -->
+    <audio id="audio" preload="true" autoplay loop>
+      <source src="/_assets/ear_robert_kroos_1.z.ogg" type="audio/ogg">
+      <source src="/_assets/ear_robert_kroos_1.z.mp3" type="audio/mpeg">
+    </audio>
+    <video id="video" preload="true"
+           width="100%" height="100%" autoplay loop
+           crossorigin="anonymous">
+      <source src="/_assets/Crystal_Habit.2.z.webm" type="video/webm">
+      <source src="/_assets/Crystal_Habit.2.z.mp4" type="video/mp4">
+    </video>
+  </a-assets>
+  <a-videosphere src="#video"></a-videosphere>
+</a-scene>

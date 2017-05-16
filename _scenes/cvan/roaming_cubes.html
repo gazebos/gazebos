@@ -5,15 +5,24 @@ date: 2017-05-09 14:00:00 -0800
 categories: scenes
 tags:
   - videos
+  - loops
   - shapes
   - cubes
   - vimeo
+  - jim
+  - jim18133
   - bensound
-video_source: https://vimeo.com/202925050
+  - mp3
+  - ogg
+  - webm
+  - mp4
+video_source: https://vimeo.com/214303851
 audio_source: http://www.bensound.com/royalty-free-music/funky-groove
 permalink: /cvan/roaming_cubes.html
-prev_scene: /cvan/lunar_winds
-next_scene: /cvan/lunar_winds
+prev_scene: /cvan/sunny_deck_delight.html
+next_scene: /cvan/lunar_winds.html
+audio_asset: /_assets/bensound-retrosoul.z.ogg
+video_asset: /_assets/Roaming_Cubes_-_Processing_360_Video.z.webm
 ---
 
 <!--
@@ -26,7 +35,7 @@ next_scene: /cvan/lunar_winds
     _tools/trim.sh "$(ls ~/Downloads/Roaming*Cubes*.mp4)"
     ```
 
-    (The converted video lives at `src/assets/Roaming_Cubes_-_Processing_360_Video.z.mp4`)
+    (The converted video will live at `_assets/Roaming_Cubes_-_Processing_360_Video.z.mp4`)
 
 4. Run this CLI command to convert the audio:
 
@@ -36,21 +45,23 @@ next_scene: /cvan/lunar_winds
     _tools/mp3.sh "$(ls ~/Downloads/bensound-retrosoul.mp3)"
     ```
 
-    (The converted audio files will live at `src/assets/bensound-retrosoul.z.ogg` and `src/assets/bensound-retrosoul.z.mp3`, respectively)
+    (The converted audio files will live at `_assets/bensound-retrosoul.z.ogg` and `_assets/bensound-retrosoul.z.mp3`, respectively)
 
 -->
 
 <a-scene auto-enter-vr="display: all">
   <a-assets>
     <!-- TIP: You can press the `S` key to pause all sounds. -->
-    <audio id="audio" preload="true" autoplay loop="true">
+    <audio id="audio" preload="true" autoplay loop>
       <source src="/_assets/bensound-retrosoul.z.ogg" type="audio/ogg">
       <source src="/_assets/bensound-retrosoul.z.mp3" type="audio/mpeg">
     </audio>
     <video id="video" preload="true"
-           src="/_assets/Roaming_Cubes_-_Processing_360_Video.z.mp4"
-           width="100%" height="100%" autoplay loop="true"
-           crossorigin="anonymous"></video>
+           width="100%" height="100%" autoplay loop
+           crossorigin="anonymous">
+      <source src="/_assets/Roaming_Cubes_-_Processing_360_Video.z.webm" type="video/webm">
+      <source src="/_assets/Roaming_Cubes_-_Processing_360_Video.z.mp4" type="video/mp4">
+    </video>
   </a-assets>
   <a-videosphere src="#video"></a-videosphere>
 </a-scene>

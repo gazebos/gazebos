@@ -1,0 +1,54 @@
+---
+layout: scene
+title: "Adobe Fort"
+date: 2017-05-15 16:52:00 -0800
+categories: scenes
+tags:
+  - loops
+  - image
+  - vimeo
+  - adobe
+  - fort
+  - grass
+  - outdoors
+  - soundcloud
+  - wearecc
+  - google
+  - google-maps-panoramas
+  - equirectangular
+  - mp3
+  - ogg
+  - webm
+  - mp4
+image_source: https://mattdesl.github.io/google-panorama-equirectangular/demo/#42.658402,11.633269
+audio_source: https://soundcloud.com/wearecc/ear_paul_diddy_2-wav
+permalink: /cvan/adobe_fort.html
+prev_scene: /cvan/concrete_sheets.html
+next_scene: /cvan/smashu_picchu.html
+audio_asset: /_assets/ear_paul_diddy_2.z.ogg
+image_asset: /_assets/42.658402_11.633269.jpg
+---
+
+<!--
+
+Commands used:
+
+```
+curl https://lh4.googleusercontent.com/-uDxg7pYhI9M/U4dTHJFeqgI/AAAAAAAAW8Q/1nFcczz1jLkQN3R1DrMTEKpANbby8embgCJkC/w2048-h1024-n-k-no/ > _assets/42.658402_11.633269.jpg
+_tools/mp3.sh ~/Downloads/ear_paul_diddy_2.wav
+_tools/ogg.sh ~/Downloads/ear_paul_diddy_2.wav
+```
+
+-->
+
+<a-scene auto-enter-vr="display: all">
+  <a-assets>
+    <!-- TIP: You can press the `S` key to pause all sounds. -->
+    <audio id="audio" preload="true" autoplay loop>
+      <source src="/_assets/ear_paul_diddy_2.z.ogg" type="audio/ogg">
+      <source src="/_assets/ear_paul_diddy_2.z.mp3" type="audio/mpeg">
+    </audio>
+    <img id="image" src="/_assets/42.658402_11.633269.jpg" crossorigin="anonymous">
+  </a-assets>
+  <a-sky src="#image"></a-sky>
+</a-scene>

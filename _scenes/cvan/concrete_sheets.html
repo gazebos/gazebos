@@ -1,0 +1,60 @@
+---
+layout: scene
+title: "Concrete Sheets in the Heat"
+date: 2017-05-15 16:46:00 -0800
+categories: scenes
+tags:
+  - videos
+  - loops
+  - outdoors
+  - environment
+  - los-angeles
+  - vimeo
+  - beard-and-glasses
+  - under-la
+  - refik-anadol
+  - peggy-weil
+  - soundcloud
+  - wearecc
+  - mp3
+  - ogg
+  - webm
+  - mp4
+video_source: https://vimeo.com/199614244
+video_start_time: 0:43
+video_end_time: 0:53
+audio_source: https://soundcloud.com/wearecc/teebs-1
+permalink: /cvan/concrete_sheets.html
+prev_scene: /cvan/cave_lights.html
+next_scene: /cvan/adobe_fort.html
+audio_asset: /_assets/ear_teebs_1.z.ogg
+video_asset: /_assets/UnderLA.z.webm
+---
+
+<!--
+
+Commands used:
+
+```
+start=0:43 end=0:53 ./_tools/trim_remove_audio.sh "$(ls ~/Downloads/*UnderLA*.mp4)" _assets/UnderLA.mp4
+./_tools/webm.sh _assets/UnderLA.z.mp4
+_tools/mp3.sh ~/Downloads/ear_teebs_1.wav
+_tools/ogg.sh ~/Downloads/ear_teebs_1.wav
+```
+
+-->
+
+<a-scene auto-enter-vr="display: all">
+  <a-assets>
+    <!-- TIP: You can press the `S` key to pause all sounds. -->
+    <audio id="audio" preload="true" autoplay loop>
+      <source src="/_assets/ear_teebs_1.z.ogg" type="audio/ogg">
+      <source src="/_assets/ear_teebs_1.z.mp3" type="audio/mpeg">
+    </audio>
+    <video id="video" preload="true" autoplay loop crossorigin="anonymous">
+      <source src="/_assets/UnderLA.z.webm" type="video/webm">
+      <source src="/_assets/UnderLA.z.mp4" type="video/mp4">
+    </video>
+  </a-assets>
+  <a-videosphere src="#video"></a-videosphere>
+</a-scene>

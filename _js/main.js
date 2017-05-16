@@ -1,6 +1,10 @@
 (function () {
   'use strict';
 
+  if (window.location.host === 'gazebos.io' && ('serviceWorker' in navigator)) {
+    navigator.serviceWorker.register('/sw.js');
+  }
+
   var num = getNum() || -1;
 
   function getNum () {
@@ -100,9 +104,42 @@
   // }
 
   sceneReady.then(function (scene) {
-    console.log('got scene', scene);
+    console.log('Scene loaded');
+
     sounds = new Sounds({
       scene: scene
+    });
+
+    var mousedownX = 0;
+    var mouseupX = 0;
+    var phiStart = 0;
+
+    var bg = scene.querySelector('a-sky, a-videosphere');
+    if (bg && !scene.isMobile) {
+      if (('requestAnimationFrame' in window) && 'performance' in window) {
+        window.requestAnimationFrame(draw);
+        var timeBefore = window.performance.now();
+      }
+    }
+
+    function draw () {
+      phiStart = (window.performance.now() - timeBefore) / 6 * Math.PI / 180;
+      // if (mousedownX < mouseupX) {
+      //   phiStart *= -1;
+      // }
+      bg.setAttribute('phi-start', phiStart);
+      if (mousedownX || mouseupX) {
+        return;
+      }
+      window.requestAnimationFrame(draw);
+    }
+
+    window.addEventListener('mousedown', function (evt) {
+      mousedownX = evt.pageX;
+    });
+
+    window.addEventListener('mouseup', function (evt) {
+      mouseupX = evt.pageX;
     });
   });
 
