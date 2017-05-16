@@ -1,4 +1,4 @@
-var CACHE = 'cache-and-update-v2';
+var CACHE = 'cache-and-update-v3';
 
 self.addEventListener('install', evt => {
   evt.waitUntil(precache());
@@ -34,13 +34,13 @@ function precache () {
       '/_js/main.js',
       '/_js/vendor/aframe-master.min.js',
       '/_js/vendor/aframe-master.min.js.map',
-      '/cvan/adobe_fort.html',
-      '/cvan/cave_lights.html',
-      '/cvan/concrete_sheets.html',
-      '/cvan/lunar_winds.html',
-      '/cvan/roaming_cubes.html',
-      '/cvan/smashu_picchu.html',
-      '/cvan/sunny_deck_delight.html',
+      '/cvan/adobe_fort',
+      '/cvan/cave_lights',
+      '/cvan/concrete_sheets',
+      '/cvan/lunar_winds',
+      '/cvan/roaming_cubes',
+      '/cvan/smashu_picchu',
+      '/cvan/sunny_deck_delight',
       '/feed.xml',
       '/index.html',
     ]);
