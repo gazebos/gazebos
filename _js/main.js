@@ -199,7 +199,7 @@
 
   var keys = {
     'ArrowLeft': 37,
-    'ArrowRight': 37,
+    'ArrowRight': 39,
     's': 83
   };
 
