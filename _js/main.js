@@ -263,6 +263,11 @@
     window.addEventListener('dblclick', function () {
       sounds.toggle();
     });
+    window.addEventListener('click', function () {
+      if (scene.is && scene.is('vr-mode')) {
+        go(1);
+      }
+    });
   }
 
   function playVideoOnClick (selector) {
