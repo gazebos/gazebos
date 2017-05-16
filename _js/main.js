@@ -1,7 +1,10 @@
 (function () {
   'use strict';
 
-  if (window.location.host === 'gazebos.io' && ('serviceWorker' in navigator)) {
+  var serviceWorkerEnabled = false;
+  if (serviceWorkerEnabled &&
+      window.location.host === 'gazebos.io' &&
+      ('serviceWorker' in navigator)) {
     navigator.serviceWorker.register('/sw.js');
   }
 
