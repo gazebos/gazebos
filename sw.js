@@ -1,4 +1,4 @@
-var CACHE = 'cache-and-update-v1';
+var CACHE = 'cache-and-update-v2';
 
 self.addEventListener('install', evt => {
   evt.waitUntil(precache());
@@ -17,14 +17,6 @@ self.addEventListener('fetch', evt => {
 function precache () {
   return caches.open(CACHE).then(cache => {
     return cache.addAll([
-      '/cvan/adobe_fort.html',
-      '/cvan/cave_lights.html',
-      '/cvan/concrete_sheets.html',
-      '/cvan/lunar_winds.html',
-      '/cvan/roaming_cubes.html',
-      '/cvan/smashu_picchu.html',
-      '/cvan/sunny_deck_delight.html',
-      '/index.html',
       '/_assets/-13.165713_-72.545542.jpg',
       '/_assets/42.658402_11.633269.jpg',
       '/_assets/Crystal_Habit.2.z.webm',
@@ -39,6 +31,18 @@ function precache () {
       '/_assets/ear_paul_diddy_2.z.ogg',
       '/_assets/ear_robert_kroos_1.z.ogg',
       '/_assets/ear_teebs_1.z.ogg',
+      '/_js/main.js',
+      '/_js/vendor/aframe-master.min.js',
+      '/_js/vendor/aframe-master.min.js.map',
+      '/cvan/adobe_fort.html',
+      '/cvan/cave_lights.html',
+      '/cvan/concrete_sheets.html',
+      '/cvan/lunar_winds.html',
+      '/cvan/roaming_cubes.html',
+      '/cvan/smashu_picchu.html',
+      '/cvan/sunny_deck_delight.html',
+      '/feed.xml',
+      '/index.html',
     ]);
   });
 }
