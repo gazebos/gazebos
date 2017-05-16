@@ -59,8 +59,10 @@
     window.location.href = './' + num + '.html';
   }
 
+  var scene;
+
   var sceneReady = new Promise(function (resolve, reject) {
-    var scene = document.querySelector('a-scene');
+    scene = document.querySelector('a-scene');
 
     if (scene) {
       resolve(scene);
@@ -260,14 +262,25 @@
   });
 
   if ('ontouchstart' in window) {
-    window.addEventListener('dblclick', function () {
-      sounds.toggle();
-    });
-    window.addEventListener('click', function () {
-      if (scene.is && scene.is('vr-mode')) {
-        go(1);
+    var lastClick = 0;
+    // NOTE: iOS does not emit `dblclick` so this handles double clicks.
+    window.addEventListener('click', function (evt) {
+      if (evt.target && evt.target.matches && evt.target.matches('button, div')) {
+        return;
       }
+      if (lastClick && Date.now() - lastClick < 500) {
+        loadNextScene();
+        return;
+      }
+      lastClick = Date.now();
     });
+  }
+
+  function loadNextScene () {
+    if (scene && scene.is && scene.is('vr-mode')) {
+      go(1);
+      evt.preventDefault();
+    }
   }
 
   function playVideoOnClick (selector) {
