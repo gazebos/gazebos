@@ -269,17 +269,19 @@
         return;
       }
       if (lastClick && Date.now() - lastClick < 500) {
-        loadNextScene();
+        loadNextScene(evt);
         return;
       }
       lastClick = Date.now();
     });
   }
 
-  function loadNextScene () {
+  function loadNextScene (evt) {
     if (scene && scene.is && scene.is('vr-mode')) {
       go(1);
-      evt.preventDefault();
+      if (evt) {
+        evt.preventDefault();
+      }
     }
   }
 
